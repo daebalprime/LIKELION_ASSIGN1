@@ -40,6 +40,8 @@ Debug 모드를 끕니다. 이 상태에서는 ALLOWED_HOSTS를 직접 지정해
 
 views.py
 
+    from django.shortcuts import render_to_response
+    from django.template import RequestContext
     def handler404(request, exception, template_name="404.html"):
         response = render_to_response("404.html")
         response.status_code = 404
@@ -47,8 +49,7 @@ views.py
 
 urls.py
 
-    handler404 = 'myapp.views.handler404' 
-    handler500 = 'myapp.views.handler500'
+    handler404 = 'myapp.views.handler404'
 
 django 프로젝트 최상위 폴더에 templates/404.html 작성 후 확인하시면 404 page가 바뀌었음을 확인하실 수 있습니다.
 
